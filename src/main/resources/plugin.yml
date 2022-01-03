@@ -3,4 +3,6 @@ version: '${project.version}'
 main: projectfile.new.New
 api-version: 1.17
 commands:
+  fireworks:
+
 
