@@ -5,6 +5,7 @@ import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.FireworkEffect.Type;
 import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
@@ -30,8 +31,10 @@ public class New extends JavaPlugin {
         this.logger.info(pdfFile.getName() + "플러그인이 좋료되었습니다");
 
     }
-
+    @Override
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+        getCommand("fireworks").setExecutor(this);
+
         if (commandLabel.equalsIgnoreCase("Fireworks")) {
             shootfireworks();
         }
@@ -47,12 +50,13 @@ public class New extends JavaPlugin {
         Random random = new Random();
         int rf = random.nextInt(2);
         if(rf == 1){
-        fireworkm.addEffect(effect);
+            fireworkm.addEffect(effect);
         }
         else if(rf == 2){
 
-        fireworkm.addEffect(effect2);
+            fireworkm.addEffect(effect2);
         }
+
         fireworkm.setPower(1);
         firework.setFireworkMeta(fireworkm);
         }
